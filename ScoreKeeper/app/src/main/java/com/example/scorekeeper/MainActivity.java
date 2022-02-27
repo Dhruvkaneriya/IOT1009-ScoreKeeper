@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    /*Here I will make variables*/
     TextView team1_score;
     TextView team2_score;
     RadioGroup radioGroup;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*Here I will declare variables to their IDs*/
         team1_score = (TextView) findViewById(R.id.team1_score);
         team2_score = (TextView) findViewById(R.id.team2_score);
         radioGroup = findViewById(R.id.radioGroup);
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*this onclick score increment method for team1*/
     public void team1_increment (View v)
     {
         counter++;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this,"Add 1 point in team 1 score",Toast.LENGTH_SHORT).show();
     }
 
+    /*this onclick score decrement method for team1*/
     public void team1_decrement (View v)
     {
         if (counter <= 0)
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this,"Remove 1 point from team 1 score",Toast.LENGTH_SHORT).show();
     }
 
+    /*this onclick score increment method for team2*/
     public void team2_increment (View v)
     {
         counter++;
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this,"Add 1 point in team 2 score",Toast.LENGTH_SHORT).show();
     }
 
+    /*this onclick score decrement method for team2*/
     public void team2_decrement (View v)
     {
         if (counter <= 0)

@@ -17,17 +17,32 @@
         tools:layout_editor_absoluteY="-23dp">
 
         <TextView
-            android:id="@+id/team1"
+            android:id="@+id/team2"
             android:layout_width="128dp"
             android:layout_height="44dp"
-            android:layout_marginTop="56dp"
-            android:text="Team1"
+            android:layout_marginTop="236dp"
+            android:text="Team 2"
             android:textAlignment="center"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/team1_button1"
+            android:layout_width="92dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="52dp"
+            android:onClick="team1_increment"
+            android:text="+"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/team2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team1"
+            app:layout_constraintVertical_bias="0.12" />
 
         <TextView
             android:id="@+id/team1_score"
@@ -39,70 +54,33 @@
             android:textSize="35sp"
             app:layout_constraintBottom_toTopOf="@+id/team2"
             app:layout_constraintEnd_toStartOf="@+id/team1_button2"
-            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toEndOf="@+id/team1_button1"
             app:layout_constraintTop_toBottomOf="@+id/team1"
-            app:layout_constraintVertical_bias="0.02" />
-
-        <Button
-            android:id="@+id/team1_button1"
-            android:layout_width="92dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="52dp"
-            android:text="+"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/team2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team1"
-            app:layout_constraintVertical_bias="0.02" />
+            app:layout_constraintVertical_bias="0.12" />
 
         <Button
             android:id="@+id/team1_button2"
             android:layout_width="92dp"
             android:layout_height="54dp"
             android:layout_marginTop="52dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginEnd="44dp"
+            android:onClick="team1_decrement"
             android:text="-"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/team2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/team1"
-            app:layout_constraintVertical_bias="0.02" />
-
-        <TextView
-            android:id="@+id/team2"
-            android:layout_width="128dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="264dp"
-            android:text="Team 2"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/team2_button2"
-            android:layout_width="92dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="48dp"
-            android:text="-"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team2" />
+            app:layout_constraintVertical_bias="0.12" />
 
         <Button
             android:id="@+id/team2_button1"
             android:layout_width="92dp"
             android:layout_height="54dp"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="44dp"
             android:layout_marginTop="52dp"
+            android:onClick="team2_increment"
             android:text="+"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -118,15 +96,28 @@
             android:textAlignment="center"
             android:textSize="35sp"
             app:layout_constraintEnd_toStartOf="@+id/team2_button2"
-            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toEndOf="@+id/team2_button1"
+            app:layout_constraintTop_toBottomOf="@+id/team2" />
+
+        <Button
+            android:id="@+id/team2_button2"
+            android:layout_width="92dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="44dp"
+            android:onClick="team2_decrement"
+            android:text="-"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/team2" />
 
         <TextView
             android:id="@+id/scoreincrement"
             android:layout_width="173dp"
             android:layout_height="31dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="48dp"
             android:text="Score Increment"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -134,60 +125,88 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/team2_score" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="97dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="40dp"
-            android:text="2 points"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/addscore"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
-            app:layout_constraintStart_toEndOf="@+id/radioButton1"
-            app:layout_constraintTop_toBottomOf="@+id/scoreincrement"
-            app:layout_constraintVertical_bias="0.05" />
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="97dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:text="1 points"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/addscore"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreincrement"
-            app:layout_constraintVertical_bias="0.05" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="97dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:text="4 points"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/addscore"
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="341dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreincrement"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreincrement">
+
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="98dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="25sp"
+                android:text="1 point"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="98dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="25dp"
+                android:text="2 points"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="97dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="25sp"
+                android:text="4 points"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+        </RadioGroup>
 
         <Button
-            android:id="@+id/addscore"
-            android:layout_width="150dp"
+            android:id="@+id/addscore_team1"
+            android:layout_width="238dp"
             android:layout_height="48dp"
-            android:layout_marginTop="128dp"
-            android:text="Add Score"
+            android:layout_marginTop="20dp"
+            android:text="Add Score in team 1"
             android:textAlignment="center"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreincrement" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <Button
+            android:id="@+id/addscore_team2"
+            android:layout_width="238dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="Add Score in team 2"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addscore_team1" />
+
+        <TextView
+            android:id="@+id/team1"
+            android:layout_width="128dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="28dp"
+            android:text="Team1"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

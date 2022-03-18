@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     Button addscore_team1;
     Button addscore_team2;
     int counter = 0;
+    int team1 =0;
+    int team2 =0;
+    String t1,t2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,43 +35,107 @@ public class MainActivity extends AppCompatActivity {
         addscore_team1 = findViewById(R.id.addscore_team1);
         addscore_team2 = findViewById(R.id.addscore_team2);
 
+        addscore_team1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+
+                if (radioId == R.id.radioButton1)
+                {
+                    team1 = team1+1;
+                    t1 = String.valueOf(team1);
+                    team1_score.setText(t1);
+                    Toast.makeText(MainActivity.this,"Add 1 point in team 1 score",Toast.LENGTH_SHORT).show();
+                }
+                else if (radioId == R.id.radioButton2)
+                {
+                    team1 = team1+2;
+                    t1 = String.valueOf(team1);
+                    team1_score.setText(t1);
+                    Toast.makeText(MainActivity.this,"Add 2 points in team 1 score",Toast.LENGTH_SHORT).show();
+                }
+                else if (radioId == R.id.radioButton3)
+                {
+                    team1 = team1+3;
+                    t1 = String.valueOf(team1);
+                    team1_score.setText(t1);
+                    Toast.makeText(MainActivity.this,"Add 3 points in team 1 score",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        addscore_team2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+
+                if (radioId == R.id.radioButton1)
+                {
+                    team2 = team2+1;
+                    t2 = String.valueOf(team2);
+                    team2_score.setText(t2);
+                    Toast.makeText(MainActivity.this,"Add 1 point in team 2 score",Toast.LENGTH_SHORT).show();
+                }
+                else if (radioId == R.id.radioButton2)
+                {
+                    team2 = team2+2;
+                    t2 = String.valueOf(team2);
+                    team2_score.setText(t2);
+                    Toast.makeText(MainActivity.this,"Add 2 points in team 2 score",Toast.LENGTH_SHORT).show();
+                }
+                else if (radioId == R.id.radioButton3)
+                {
+                    team2 = team2+3;
+                    t2 = String.valueOf(team2);
+                    team2_score.setText(t2);
+                    Toast.makeText(MainActivity.this,"Add 3 point2 in team 2 score",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     /*this onclick score increment method for team1*/
     public void team1_increment (View v)
     {
-        counter++;
-        team1_score.setText("" + counter);
-        Toast.makeText(MainActivity.this,"Add 1 point in team 1 score",Toast.LENGTH_SHORT).show();
+        team1++;
+        team1_score.setText("" + team1);
     }
 
     /*this onclick score decrement method for team1*/
     public void team1_decrement (View v)
     {
-        if (counter <= 0)
-            counter = 0;
+        if (team1 <= 0)
+            team1 = 0;
         else
-        counter--;
-        team1_score.setText("" + counter);
+        team1--;
+        team1_score.setText("" + team1);
         Toast.makeText(MainActivity.this,"Remove 1 point from team 1 score",Toast.LENGTH_SHORT).show();
     }
 
     /*this onclick score increment method for team2*/
     public void team2_increment (View v)
     {
-        counter++;
-        team2_score.setText("" + counter);
-        Toast.makeText(MainActivity.this,"Add 1 point in team 2 score",Toast.LENGTH_SHORT).show();
+        team2++;
+        team2_score.setText("" + team2);
     }
 
     /*this onclick score decrement method for team2*/
     public void team2_decrement (View v)
     {
-        if (counter <= 0)
-            counter = 0;
+        if (team2 <= 0)
+            team2 = 0;
         else
-            counter--;
-        team2_score.setText("" + counter);
+            team2--;
+        team2_score.setText("" + team2);;
         Toast.makeText(MainActivity.this,"Remove 1 point from team 2 score",Toast.LENGTH_SHORT).show();
+    }
+
+    public void checkButton(View view) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+
     }
 }

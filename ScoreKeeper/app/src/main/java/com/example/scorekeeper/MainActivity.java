@@ -1,14 +1,18 @@
 package com.example.scorekeeper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     /*Here I will make variables*/
@@ -23,8 +27,21 @@ public class MainActivity extends AppCompatActivity {
     int team2 =0;
     String t1,t2;
 
+    SwitchCompat switchCompat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // This is the condition checked for dark and light mode.
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            // If night mode is equal to yes so set dark theme
+            setTheme(R.style.Theme_Dark);
+        }
+        else
+        {
+            // If night mode is not equal to yes so set light theme
+            setTheme(R.style.Theme_Light);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         addscore_team1 = findViewById(R.id.addscore_team1);
         addscore_team2 = findViewById(R.id.addscore_team2);
+
+        switchCompat = findViewById(R.id.switch_button);
+
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // If switch button is checked so set night mode
+                if(isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                // else switch button is unchecked so set light mode
+                else
+                {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         addscore_team1.setOnClickListener(new View.OnClickListener() {
             @Override
